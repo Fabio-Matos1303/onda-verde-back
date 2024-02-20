@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Noticias {
+  id          BigInt   @id @default(autoincrement())
+  UrlDaImagem String
+  materia     String
+  autor       String   @db.VarChar(255)
+  dataMateria DateTime @db.Date
+
+  @@map("noticias")
+}
+
+model Animais {
+  id              BigInt          @id @default(autoincrement())
+  nome            String          @db.VarChar(255)
+  UrlDaImagem     String
+  idade           Int
+  especie         String          @db.VarChar(255)
+  disponibilidade Disponibilidade
+  descricao       String          @db.Text
+
+  @@map("animais")
+}
+
+model User {
+  id    BigInt  @id @default(autoincrement())
+  name  String  @db.VarChar(255)
+  senha String  @db.VarChar(255)
+  email String  @db.VarChar(255)
+  admin Boolean @default(false) @db.Boolean
+
+  @@map("users")
+}
+
+enum Disponibilidade {
+  ADOTADO
+  DISPONIVEL
+  INDISPONIVEL
+  RESERVADO
+}
