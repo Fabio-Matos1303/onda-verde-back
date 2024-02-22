@@ -7,4 +7,5 @@ import { PrismaService } from '../../database/prisma.service';
   controllers: [NoticiasController],
   providers: [NoticiasService, PrismaService],
 })
+// eslint-disable-next-line prettier/prettier
 export class NoticiasModule { }
