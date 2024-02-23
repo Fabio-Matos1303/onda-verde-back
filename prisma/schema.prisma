@@ -22,7 +22,7 @@ model Noticias {
 }
 
 model Animais {
-  id              BigInt          @id @default(autoincrement())
+  id              Int             @id @default(autoincrement())
   nome            String          @db.VarChar(255)
   UrlDaImagem     String
   idade           Int
@@ -34,7 +34,7 @@ model Animais {
 }
 
 model User {
-  id    BigInt  @id @default(autoincrement())
+  id    Int     @id @default(autoincrement())
   name  String  @db.VarChar(255)
   senha String  @db.VarChar(255)
   email String  @db.VarChar(255)
